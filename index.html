@@ -210,7 +210,7 @@
             function() {
                 console.log('requesting data from server...')
 
-                fetch('http://localhost:3000/collection/lessons').then(
+                fetch('http://cw2individual-env.eba-idp68tuq.ap-south-1.elasticbeanstalk.com/collection/lessons').then(
                     function(response) {
                         response.json().then(
                             function(data) {
@@ -229,7 +229,7 @@
                     phone: this.phone,
                     lessons: this.cart
                     }
-                    fetch('http://localhost:3000/collection/orders', {
+                    fetch('http://cw2individual-env.eba-idp68tuq.ap-south-1.elasticbeanstalk.com/collection/orders', {
                         method: "POST",
                         body: JSON.stringify(order),
                         headers: {
@@ -263,7 +263,7 @@
                         console.log(updatedSpace[0])
                         for (let index = 0; index < updatedLesson.length; index++) {
                             let newSpace = (JSON.stringify(updatedSpace[index]))
-                        fetch('http://localhost:3000/collection/lessons/'+ updatedLesson[index], {
+                        fetch('http://cw2individual-env.eba-idp68tuq.ap-south-1.elasticbeanstalk.com/collection/lessons'+ updatedLesson[index], {
                             method: "PUT",
                             body: newSpace,
                             headers: {
@@ -346,7 +346,7 @@
                 // Filters lessons based on user input
                 searchLessons() {
                     if (this.search.length > 0) {
-                        fetch(`http://localhost:3000/collection/lessons/search/${this.search}`)
+                        fetch(`http://cw2individual-env.eba-idp68tuq.ap-south-1.elasticbeanstalk.com/collection/lessons/search/${this.search}`)
                 .then(res => {
                     return res.json()
                 })
