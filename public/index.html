@@ -263,7 +263,7 @@
                         console.log(updatedSpace[0])
                         for (let index = 0; index < updatedLesson.length; index++) {
                             let newSpace = (JSON.stringify(updatedSpace[index]))
-                        fetch('http://cstcw2-env.eba-rmk3utmh.ap-south-1.elasticbeanstalk.com/collection/lessons'+ updatedLesson[index], {
+                        fetch('http://cstcw2-env.eba-rmk3utmh.ap-south-1.elasticbeanstalk.com/collection/lessons/'+ updatedLesson[index], {
                             method: "PUT",
                             body: newSpace,
                             headers: {
