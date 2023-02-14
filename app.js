@@ -19,9 +19,7 @@ app.use(function(request, response, next) {
     console.log("In comes a " + request.method + " to: " + request.url);
     next();
 });
-app.get(function(req,res,next) {
-    res.sendFile(path.join(__dirname, "index.html"))
-});
+app.use((express.static("public")));
 
 
 const MongoClient = require('mongodb').MongoClient;
