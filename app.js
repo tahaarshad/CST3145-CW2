@@ -41,6 +41,7 @@ app.param('collectionName', (req,res,next,collectionName) =>{
     return next()
 })
 
+// Get collection
 app.get('/collection/:collectionName', (req,res,next) => {
     req.collection.find({}).toArray((e,results) => {
         if(e) return next(e)
@@ -48,7 +49,7 @@ app.get('/collection/:collectionName', (req,res,next) => {
     })
 })
 
-
+// Add object
 app.post('/collection/:collectionName', (req,res,next) => {
     req.collection.insertOne(req.body, (e,results) => {
         if(e) return next(e)
@@ -56,6 +57,7 @@ app.post('/collection/:collectionName', (req,res,next) => {
     })
 })
 
+// Get Object
 app.get('/collection/:collectionName/:id', (req,res,next)=>{
     req.collection.findOne({_id: new ObjectID(req.params.id)}, (e,results) => {
         if (e) return next(e)
@@ -63,6 +65,7 @@ app.get('/collection/:collectionName/:id', (req,res,next)=>{
     })
 })
 
+// Update Object
 app.put('/collection/:collectionName/:id', (req,res,next)=>{
     req.collection.updateOne(
         {_id: new ObjectID(req.params.id)},
@@ -74,6 +77,8 @@ app.put('/collection/:collectionName/:id', (req,res,next)=>{
     })
 })
 
+
+// Delete object
 app.delete('/collection/:collectionName/:id', (req,res,next)=>{
     req.collection.deleteOne(
         {_id: new ObjectID(req.params.id)},
@@ -83,6 +88,7 @@ app.delete('/collection/:collectionName/:id', (req,res,next)=>{
     })
 })
 
+// Search object
 app.get('/collection/:collectionName/search/:keyword', (req, res,next) => {
     let {keyword} = req.params
     req.collection.find({}).toArray((err, results) => {
